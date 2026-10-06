@@ -1,0 +1,447 @@
+:root {
+  --font-sans: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-serif: 'Playfair Display', Georgia, serif;
+  --font-hand: 'Caveat', cursive;
+
+  --bg-base: #110714;
+  --bg-card: rgba(26, 12, 30, 0.78);
+  --border-card: rgba(251, 113, 133, 0.18);
+  --border-active: rgba(251, 113, 133, 0.45);
+
+  --color-rose: #e11d48;
+  --color-rose-light: #fb7185;
+  --color-blush: #fecdd3;
+  --color-white: #ffffff;
+  --color-text-muted: #c2b5c7;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--bg-base);
+  color: var(--color-white);
+  min-height: 100vh;
+  min-height: 100dvh;
+  line-height: 1.6;
+  background-image: 
+    radial-gradient(circle at 50% 0%, rgba(225, 29, 72, 0.28), transparent 60%),
+    radial-gradient(circle at 100% 60%, rgba(184, 29, 72, 0.15), transparent 50%),
+    linear-gradient(180deg, #130716 0%, #0c040e 100%);
+  background-attachment: fixed;
+  overflow-x: hidden;
+}
+
+/* Mobile Wrapper Shell */
+.mobile-shell {
+  width: 100%;
+  max-width: 520px;
+  margin: 0 auto;
+  padding: 16px 16px 60px 16px;
+}
+
+/* Top Sticky-feeling Header */
+.site-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 18px;
+  background: rgba(26, 12, 30, 0.85);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid var(--border-card);
+  border-radius: 50px;
+  margin-bottom: 20px;
+  position: sticky;
+  top: 12px;
+  z-index: 50;
+}
+
+.header-brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  letter-spacing: 0.3px;
+}
+
+.heart-pulse {
+  animation: gentlePulse 2s ease-in-out infinite;
+}
+
+@keyframes gentlePulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.15); }
+}
+
+.melody-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(225, 29, 72, 0.14);
+  color: var(--color-blush);
+  border: 1px solid rgba(251, 113, 133, 0.3);
+  padding: 6px 14px;
+  border-radius: 30px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  cursor: pointer;
+  font-family: inherit;
+  transition: all 0.2s ease;
+}
+
+.melody-toggle:active {
+  transform: scale(0.96);
+}
+
+.melody-toggle.active {
+  background: var(--color-rose);
+  color: #fff;
+  border-color: transparent;
+  box-shadow: 0 0 14px rgba(225, 29, 72, 0.5);
+}
+
+/* Content Stack */
+.content-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Hero Section */
+.hero-card {
+  background: var(--bg-card);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border-card);
+  border-radius: 24px;
+  padding: 24px 20px;
+  text-align: center;
+}
+
+.photo-container {
+  width: 100%;
+  max-width: 290px;
+  margin: 0 auto 20px auto;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6), 0 0 24px rgba(225, 29, 72, 0.25);
+  border: 1.5px solid rgba(254, 205, 211, 0.25);
+  background: #1e0924;
+}
+
+.aditi-photo {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+}
+
+.hero-tag {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--color-rose-light);
+  margin-bottom: 8px;
+}
+
+.hero-title {
+  font-family: var(--font-serif);
+  font-size: 1.85rem;
+  font-weight: 700;
+  line-height: 1.25;
+  color: #fff;
+  margin-bottom: 12px;
+}
+
+.hero-subtext {
+  font-size: 0.95rem;
+  color: var(--color-text-muted);
+  line-height: 1.65;
+  text-align: left;
+}
+
+/* Melody Player Banner */
+.melody-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: linear-gradient(135deg, rgba(225, 29, 72, 0.18), rgba(35, 13, 41, 0.8));
+  border: 1px solid var(--border-card);
+  border-radius: 18px;
+  padding: 14px 18px;
+}
+
+.melody-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.disc {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #f43f5e 30%, #20072b 75%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1.5px solid rgba(255, 255, 255, 0.3);
+}
+
+.disc-spin {
+  animation: spin 3.5s linear infinite;
+}
+
+@keyframes spin {
+  100% { transform: rotate(360deg); }
+}
+
+.melody-name {
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: #fff;
+}
+
+.melody-artist {
+  font-size: 0.75rem;
+  color: var(--color-blush);
+}
+
+.btn-play-small {
+  background: rgba(225, 29, 72, 0.2);
+  color: #fff;
+  border: 1px solid rgba(251, 113, 133, 0.35);
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: inherit;
+  transition: all 0.2s ease;
+}
+
+.btn-play-small:active {
+  transform: scale(0.95);
+}
+
+.btn-play-small.btn-playing {
+  background: var(--color-rose);
+  border-color: transparent;
+}
+
+/* Lyrics Section */
+.lyrics-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-card);
+  border-radius: 24px;
+  padding: 24px 18px;
+}
+
+.card-heading {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.card-kicker {
+  display: block;
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--color-rose-light);
+  margin-bottom: 4px;
+}
+
+.card-heading h2 {
+  font-family: var(--font-serif);
+  font-size: 1.45rem;
+  color: #fff;
+}
+
+.lyrics-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.lyric-block {
+  background: rgba(18, 7, 24, 0.55);
+  border: 1px solid rgba(251, 113, 133, 0.12);
+  border-radius: 16px;
+  padding: 16px 18px;
+}
+
+.lyric-block.chorus-block {
+  background: rgba(225, 29, 72, 0.14);
+  border-color: rgba(251, 113, 133, 0.35);
+  box-shadow: 0 4px 16px rgba(225, 29, 72, 0.15);
+}
+
+.lyric-title {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  color: var(--color-rose-light);
+  margin-bottom: 8px;
+}
+
+.lyric-line {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: #f7eff9;
+  margin-bottom: 4px;
+}
+
+.lyric-line:last-child {
+  margin-bottom: 0;
+}
+
+.chorus-block .lyric-line {
+  font-weight: 500;
+  color: #ffffff;
+}
+
+/* Letter Card */
+.letter-card {
+  background: linear-gradient(145deg, rgba(254, 205, 211, 0.08), rgba(244, 63, 94, 0.04));
+  border: 1px solid var(--border-card);
+  border-radius: 24px;
+  padding: 24px 20px;
+}
+
+.letter-title {
+  font-family: var(--font-hand);
+  font-size: 1.8rem;
+  color: var(--color-blush);
+  margin-bottom: 12px;
+}
+
+.letter-body {
+  font-size: 0.95rem;
+  line-height: 1.8;
+  color: #f3e9f5;
+  margin-bottom: 18px;
+}
+
+.letter-foot {
+  font-family: var(--font-hand);
+  font-size: 1.6rem;
+  color: var(--color-rose-light);
+  text-align: right;
+}
+
+/* Forgiveness Section */
+.forgive-card {
+  background: radial-gradient(circle at 50% 0%, rgba(225, 29, 72, 0.22), rgba(22, 9, 28, 0.88) 75%);
+  border: 1px solid var(--border-card);
+  border-radius: 24px;
+  padding: 28px 20px;
+  text-align: center;
+}
+
+.forgive-card h3 {
+  font-family: var(--font-serif);
+  font-size: 1.6rem;
+  color: #fff;
+  margin-bottom: 8px;
+}
+
+.forgive-hint {
+  font-size: 0.9rem;
+  color: var(--color-blush);
+  margin-bottom: 24px;
+}
+
+.decision-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.btn-yes {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  background: linear-gradient(135deg, #10b981, #059669);
+  color: #fff;
+  border: none;
+  padding: 16px;
+  border-radius: 50px;
+  font-size: 1.05rem;
+  font-weight: 700;
+  cursor: pointer;
+  font-family: inherit;
+  box-shadow: 0 6px 20px rgba(16, 185, 129, 0.35);
+  transition: transform 0.15s ease;
+}
+
+.btn-yes:active {
+  transform: scale(0.97);
+}
+
+.btn-no {
+  width: 100%;
+  background: rgba(239, 68, 68, 0.12);
+  color: #fca5a5;
+  border: 1px solid rgba(239, 68, 68, 0.35);
+  padding: 13px;
+  border-radius: 50px;
+  font-size: 0.92rem;
+  font-weight: 500;
+  cursor: pointer;
+  font-family: inherit;
+  transition: background 0.2s ease;
+}
+
+.btn-no:active {
+  background: rgba(239, 68, 68, 0.25);
+}
+
+.plea-box {
+  margin-top: 18px;
+  font-family: var(--font-hand);
+  font-size: 1.5rem;
+  color: #fef08a;
+  line-height: 1.35;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.forgiven-box {
+  padding: 10px 0;
+  animation: popIn 0.35s ease;
+}
+
+@keyframes popIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.forgiven-box h3 {
+  color: #6ee7b7;
+  font-size: 1.6rem;
+  margin: 10px 0 6px 0;
+}
+
+.forgiven-box p {
+  color: #d1fae5;
+  font-size: 0.95rem;
+}

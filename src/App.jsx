@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import confetti from 'canvas-confetti';
 import { Heart, Music, VolumeX, Sparkles } from 'lucide-react';
 import { sound } from './audioSynth';
+import aditiPhoto from './assets/aditi.jpg';
 
 export default function App() {
   const [isPlayingMusic, setIsPlayingMusic] = useState(false);
@@ -111,10 +112,9 @@ export default function App() {
         <section className="hero-card">
           <div className="photo-container">
             <img 
-              src="/aditi.jpg" 
+              src={aditiPhoto} 
               alt="Aditi" 
               className="aditi-photo" 
-              onError={(e) => { e.target.src = '/pic.jpg'; }}
             />
           </div>
 
